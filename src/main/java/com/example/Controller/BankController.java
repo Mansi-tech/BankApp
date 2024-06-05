@@ -34,7 +34,7 @@ public class BankController {
 	
 	@GetMapping("/checkBalance/{username}")
     public double checkBalance(@PathVariable String username) {
-        double customerResponse=rs.getForObject("http://localhost:8899/api/checkBalance/"+username, Double.class);
+        double customerResponse=rs.getForObject("http://localhost:8889/api/checkBalance/"+username, Double.class);
         return customerResponse;
 	}
 	
@@ -46,19 +46,19 @@ public class BankController {
 	
 	@PostMapping("/register")
 	public void register(@RequestBody User user) {
-		rs.postForLocation("http://localhost:8899/api/register/"+user, User.class);
+		rs.postForLocation("http://localhost:8889/api/register/"+user, User.class);
 	}
 //	
 	
 	 @PutMapping("/withdraw/{username}/{amount}")
     public void  withdraw(@PathVariable String username,@PathVariable double amount) {
-       rs.put("http://localhost:8899/api/withdraw/"+username+"/"+amount, String.class);
+       rs.put("http://localhost:8889/api/withdraw/"+username+"/"+amount, String.class);
 	    
 	 }
 	 
 	 @PutMapping("/deposit/{username}/{amount}")
 	 public void deposit(@PathVariable String username,@PathVariable double amount) {
-		 rs.put("http://localhost:8899/api/deposit/"+username+"/"+amount, String.class);
+		 rs.put("http://localhost:8889/api/deposit/"+username+"/"+amount, String.class);
 	 }
 	 
 	 
